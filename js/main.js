@@ -6,7 +6,7 @@ function getAvg(items){
    }).reduce(function(total, value){
      return total + value;
    }) / items.length;
-}
+};
 
 
 function getBetween(start, end){
@@ -20,7 +20,7 @@ return items.filter(function(item){
 };
 
 // this is question 3
-var britMoney = items.filter(function(item){
+var sterling = items.filter(function(item){
  return item.currency_code === "GBP";
  }).map(function(item){
     return item.title  +  ' costs '  +  item.price  +  ' GBP ';
@@ -53,21 +53,36 @@ var wood = items.filter(function(item){
   return html + item;
 });
 
+// number 5
 
-//question 5
+var materials = items.filter(function(item){
+  return materials = item.materials >= 8
+}).map(function(item){
+  return item.title + item.materials;
+  // }).reduce(function(html, item){
+    return html + item;
+})
 
-var
+//number 6
+
+var sellers = items.filter(function(item){
+ return item.who_made === "i_did";
+});
+
+
 
 ///these are the variables
 var answer1 = getAvg(items).toFixed(2);
 var answer2 = getBetween(12.00, 18.00);
-// var answer3 = getSterling("GBP");
+
 
 
 
 ////to the DOM....
 document.getElementById('answer1').innerHTML = answer1
 document.getElementById('answer2').innerHTML = answer2
-document.getElementById("answer3").innerHTML = britMoney;
+document.getElementById("answer3").innerHTML = sterling;
 
 document.getElementById("answer4").innerHTML = wood;
+document.getElementById("answer6").innerHTML = sellers.length + " are made by their sellers";
+document.getElementById("answer5").innerHTML = materials;
